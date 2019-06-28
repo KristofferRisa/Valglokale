@@ -12,7 +12,7 @@ export default {
   name: 'Locations',
   computed: {
     locations() {
-      return this.$store.state.locations.all
+      return this.$store.state.all
     }
   }
 }
