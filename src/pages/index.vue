@@ -1,34 +1,31 @@
 <template>
- <el-container >
-     <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>View</el-dropdown-item>
-            <el-dropdown-item>Add</el-dropdown-item>
-            <el-dropdown-item>Delete</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <span>Starte HERE</span>
-      </el-header>
-
-    
+<section>
     <div class="container">
-      <DropDownFylke></DropDownFylke>
+      <div class="title">
+        Finn valglokale
+      </div>
+      
+      <DropDownFylke class="row"></DropDownFylke>
+      <div class="row">
+        <AddressTable></AddressTable>
+      </div>
+      </div>
+      
+     
       <!-- <Locations></Locations> -->
-    </div>
-   
-   </el-container>
+</section>
 </template>
 
 <script>
 import Locations from '~/components/Locations.vue'
 import DropDownFylke from '~/components/DropDownFylke.vue'
+import AddressTable from '~/components/AddressTable.vue'
 
 export default {
   components: {
     Locations,
-    DropDownFylke
+    DropDownFylke,
+    AddressTable
   }
 }
 </script>
@@ -38,6 +35,7 @@ export default {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -53,15 +51,16 @@ export default {
   letter-spacing: 1px;
 }
 
+.row {
+  margin: 10px;
+}
+/* 
 .subtitle {
   font-weight: 300;
   font-size: 42px;
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
-}
+} */
 
-.links {
-  padding-top: 15px;
-}
 </style>

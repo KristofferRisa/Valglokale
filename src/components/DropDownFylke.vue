@@ -38,38 +38,7 @@
   </div>
   <div class="row">
 
-
-    <!-- <el-table :data="getAddresses"  v-if="getAddresses.length">
-          <el-table-column prop="county_name" label="Fylke" width="140">
-          </el-table-column>
-          <el-table-column prop="area" label="By" width="120">
-          </el-table-column>
-          <el-table-column  prop="address_line" label="Address">
-          </el-table-column>
-        </el-table> -->
-
-    <div v-if="getAddresses.length">
-      <h3>Addresser</h3>
-      <table>
-        <thead>
-        <tr>
-          <th>Fylke</th>
-          <th>By</th>
-          <th>Addresse</th>
-        </tr>
-        <tr v-for="address in getAddresses" :key="address.id">
-          <td >{{ address.county_name }}</td>
-          <td>{{ address.area }}</td>
-          <td><a v-bind:href="'https://www.google.com/maps/search/?api=1&query='+address.gps_coordinates"
-                target="_blank">{{ address.address_line }}</a></td>
-            <td>
-                <button @click="setLokale(address.gps_coordinates)" > Vis lokale</button>
-            </td>
-        </tr>
-      </thead>
-      </table>
-    </div>
-
+   
   </div>
       </form>
 </template>
