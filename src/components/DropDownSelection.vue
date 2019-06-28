@@ -21,7 +21,7 @@
 
         <div class="form-group row" v-if="getCounty">
 
-          <label class="col-sm-5 col-form-label">Velg by:</label>
+          <label class="col-sm-5 col-form-label">Velg kommune:</label>
           <input class="form-control col-sm-7" 
                 id="area" 
                 list="areaList" 

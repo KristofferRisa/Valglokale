@@ -7,7 +7,7 @@
         <hr>
         <article id="addresse">
             <p>Fylke: {{ getLokale.county_name }}</p>
-            <p>By: {{ getLokale.area }}</p>
+            <p>Sted/kommune: {{ getLokale.area }}</p>
             <p>Post nr {{ getLokale.postal_code }}</p>
             <p>Addresse: <a v-bind:href="'https://www.google.com/maps/search/?api=1&query='+getLokale.gps_coordinates" target="_blank">{{ getLokale.address_line }}</a> </p>
             <p></p>
@@ -21,7 +21,10 @@
             </code>
             </pre>
         </article>
+        <hr>
+        <nuxt-link to="/">tilbake</nuxt-link>
     </section>
+
 </div>
 </template>
 

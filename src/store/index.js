@@ -5,7 +5,7 @@ export const state = () => ({
     all: [],
     addresses: [],
     counties: [],
-    cities: [], 
+    areas: [], 
     county: '',
     area: '',
     lokale: '' //used to see details on the selected lokale
@@ -19,7 +19,7 @@ export const mutations = {
     setSelectedCounty(state, county) {
         state.county = county;
         state.addresses = state.all.filter(e => e.county_name === state.county)
-        state.cities = [...new Set(state.all
+        state.areas = [...new Set(state.all
             .filter(c => c.county_name === state.county)
             .map(f => f.area))]
     },
@@ -69,7 +69,7 @@ export const getters = {
         return state.counties
     },
     getAreas(state) {
-        return state.cities
+        return state.areas
     },
     getArea(state) {
         return state.area
