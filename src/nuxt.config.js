@@ -1,6 +1,6 @@
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -49,6 +49,7 @@ export default {
   ** Build configuration
   */
   build: {
+    publicPath: 'public/',
     transpile: [/^element-ui/],
     /*
     ** You can extend webpack config here

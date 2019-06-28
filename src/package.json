@@ -14,10 +14,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "element-ui": "^2.4.11",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^2.6.0",
-    "nuxt": "^2.0.0"
+    "element-ui": "^2.4.11",
+    "nuxt": "^2.8.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
