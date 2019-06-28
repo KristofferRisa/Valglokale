@@ -1,44 +1,32 @@
 <template>
-  <form>
+  
     <div class="container">
-      <div class="row">
-        <div class="form-group row pull-left">
+        
+<form>
+<div class="row">
 
-          <label class="col-sm-5 col-form-label">Velg fylke:</label>
-          <input id="county" 
-                list="countyList" 
-                name="countyinput"
-                autocomplete="off"
-                v-model="selectedCounty" 
-                class="form-control col-sm-6 col-offset-1" 
-                @change="setCounty" 
-                placeholder="skriv inn fylke..." />
-          <datalist id="countyList">
-            <option v-bind:value="c" v-for="c in getCounties" :key="c" />
-          </datalist>
+  <div class="col">
+    <label>Velg fylke:</label>
+    <input id="county" list="countyList" name="countyinput" autocomplete="off" v-model="selectedCounty" class="form-control" @change="setCounty" placeholder="skriv inn fylke..." />
+    <datalist id="countyList">
+      <option v-bind:value="c" v-for="c in getCounties" :key="c" />
+    </datalist>
+  </div>
+  <div class="col" v-if="getCounty">
 
-        </div>
 
-        <div class="form-group row" v-if="getCounty">
+    <label>Velg kommune:</label>
+    <input class="form-control" id="area" list="areaList" name="area" autocomplete="off" v-model="selectedArea" @change="setArea" placeholder="skriv inn by..." />
 
-          <label class="col-sm-5 col-form-label">Velg kommune:</label>
-          <input class="form-control col-sm-7" 
-                id="area" 
-                list="areaList" 
-                name="area" 
-                autocomplete="off"
-                v-model="selectedArea" 
-                @change="setArea" 
-                placeholder="skriv inn by..." />
-          
-          <datalist id="areaList">
-            <option v-bind:value="a" v-for="a in getAreas" :key="a" />
-          </datalist>
+    <datalist id="areaList">
+      <option v-bind:value="a" v-for="a in getAreas" :key="a" />
+    </datalist>
 
-        </div>
-      </div>
-    </div>
-  </form>
+  </div>
+</div>
+
+</form>
+</div>
 </template>
 
 <script>
@@ -82,4 +70,9 @@ export default {
 
 <style scoped>
 
+@media only screen and (min-width: 600px) {
+  label,input {
+  margin-left:15px; 
+}
+}
 </style>
