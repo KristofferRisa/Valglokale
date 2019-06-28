@@ -4,13 +4,12 @@
       <div class="title">
         Finn valglokale
       </div>
-      
    </div>
+
    <DropDownSelection></DropDownSelection>
 
-    <AddressTable></AddressTable>
+   <AddressTable></AddressTable>
 
-      <!-- <Locations></Locations> -->
 </section>
 </template>
 
