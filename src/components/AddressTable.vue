@@ -1,23 +1,34 @@
 <template>
-    <div v-if="getAddresses.length">
-        <h3>Addresser</h3>
-        <table id="addressTable">
-            <thead>
-                <tr>
-                    <th>Fylke</th>
-                    <th>By</th>
-                    <th>Addresse</th>
-                </tr>
-                <tr v-for="address in getAddresses" :key="address.id">
-                    <td>{{ address.county_name }}</td>
-                    <td>{{ address.area }}</td>
-                    <td><a v-bind:href="'https://www.google.com/maps/search/?api=1&query='+address.gps_coordinates" target="_blank">{{ address.address_line }}</a></td>
-                    <td>
-                        <button @click="setLokale(address.gps_coordinates)"> Vis lokale</button>
-                    </td>
-                </tr>
-            </thead>
-        </table>
+    <div v-if="getAddresses.length" class="container-data">
+        <h3>Addresser:</h3>
+        <hr>
+          <el-table
+            :data="getAddresses"
+            height="250"
+            style="width: 100%">
+            <el-table-column
+            prop="county_name"
+            label="Fylke"
+            width="180">
+            </el-table-column>
+            <el-table-column
+            prop="area"
+            label="By"
+            width="180">
+            </el-table-column>
+            <el-table-column
+            
+            label="Address">
+            <template  slot-scope="scope">
+                <a v-bind:href="'https://www.google.com/maps/search/?api=1&query='+scope.row.gps_coordinates" target="_blank">{{ scope.row.address_line }}</a>
+            </template>
+            </el-table-column>
+            <el-table-column >
+                <template slot-scope="scope">
+                    <button @click="setLokale(scope.row.gps_coordinates, getAddresses)"> Vis lokale</button>
+                </template>
+            </el-table-column>
+        </el-table>
     </div>
 </template>
 
@@ -26,13 +37,24 @@ import { mapGetters } from 'vuex'
 
 export default {
     name: 'AddressTable',
-    computed: mapGetters(['getAddresses']
-  )
+    computed: mapGetters(['getAddresses']),
+    methods: {
+        setLokale(lokale) {
+        console.log('setLokale: ' + lokale);
+        this.$store.commit('setLokale', lokale);
+        this.$router.push('/lokale');
+        }
+    }
 }
 </script>
 
 <style>
 
+.container-data{
+  /* display: flex; */
+  width: 70%;
+  margin: 0 auto;
+}
 
 
 </style>

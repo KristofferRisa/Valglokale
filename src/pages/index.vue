@@ -5,13 +5,11 @@
         Finn valglokale
       </div>
       
-      <DropDownFylke class="row"></DropDownFylke>
-      <div class="row">
-        <AddressTable></AddressTable>
-      </div>
-      </div>
-      
-     
+   </div>
+   <DropDownFylke></DropDownFylke>
+
+    <AddressTable></AddressTable>
+
       <!-- <Locations></Locations> -->
 </section>
 </template>
@@ -33,13 +31,14 @@ export default {
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 120px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   text-align: center;
 }
+
 
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
@@ -51,10 +50,7 @@ export default {
   letter-spacing: 1px;
 }
 
-.row {
-  margin: 10px;
-}
-/* 
+/*
 .subtitle {
   font-weight: 300;
   font-size: 42px;

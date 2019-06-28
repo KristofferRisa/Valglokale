@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <nuxt-link to="/">Hjem</nuxt-link>
+        <nuxt-link to="/">Hjem</nuxt-link> |
         <nuxt-link to="/About">Om</nuxt-link>
     </nav>
 </template>
@@ -14,12 +14,12 @@ export default {
 <style>
 nav {
   overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
+  /* position: fixed;  */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   text-align: center;
   /* text-decoration: underline; */
-  margin-top:25px; 
+  margin-top:25px;
 }
 
 nav > a {
