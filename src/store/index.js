@@ -1,3 +1,18 @@
-export const state = () => ({ })
+import Vue from 'vue'
+import Vuex from 'vuex'
+import locations from './locations.js'
 
-export const getters = {}
+Vue.use(Vuex)
+
+const store = () => {
+  return new Vuex.Store({
+    state: {
+
+    },
+    modules: {
+      locations
+    }
+  })
+}
+
+export default store

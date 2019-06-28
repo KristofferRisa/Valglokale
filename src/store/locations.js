@@ -39,3 +39,14 @@ export const state = () => ({
     }
   ]
 })
+
+export const mutations = () => ({
+  setSelectedArea(state, { area }) {
+    state.area = area
+  }
+})
+
+export default {
+  state,
+  mutations
+}
