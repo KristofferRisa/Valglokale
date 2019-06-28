@@ -12,17 +12,11 @@
         <span>Starte HERE</span>
       </el-header>
 
-      <el-main>
     
-    <div>
-      <h3>ValgLokaler</h3>
-      <hr>
+    <div class="container">
       <DropDownFylke></DropDownFylke>
       <!-- <Locations></Locations> -->
     </div>
-
-      </el-main>
-
    
    </el-container>
 </template>

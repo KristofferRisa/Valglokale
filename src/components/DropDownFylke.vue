@@ -1,36 +1,42 @@
 <template>
-  <div>
-    <h2>Velkg fylke</h2>
-    <form>
-      <input 
-      id="county"
-      list="countyList"
-      name="countyinput"
-      v-model="selectedCounty"
-      @change="setCounty"
-      placeholder="skriv inn fylke..."/>
-      <datalist id="countyList" >
-        <option v-bind:value="c" v-for="c in getCounties" :key="c"/>
-      </datalist>
-    
-    <div v-if="getCounty">
-      <h3>Velg by i {{ getCounty }}</h3>
-      <input 
-      id="area"
-      list="areaList"
-      name="area"
-      v-model="selectedArea"
-      @change="setArea"
-      placeholder="skriv inn by..."/>
-      <datalist id="areaList" >
-        <option v-bind:value="a" v-for="a in getAreas" :key="a" />
-      </datalist>
-    </div>
-    </form>
+<form>
+  <div class="row">
+ 
+      <div class="form-group row">
+        
+        <label  class="col-sm-4 col-form-label">Velg fylke:</label>
+        
+          <input 
+          id="county"
+          list="countyList"
+          name="countyinput"
+          v-model="selectedCounty"
+          class="form-control col-sm-7 col-offset-1"
+          @change="setCounty"
+          placeholder="skriv inn fylke..."/>
+          <datalist id="countyList" >
+            <option v-bind:value="c" v-for="c in getCounties" :key="c"/>
+          </datalist>
+      </div>
 
-    <div v-if="getArea">
-      <h3>Viser steder i byen {{ getArea }} i {{ getCounty }} </h3>
+        
+    <div class="form-group row">
+
+          <label  class="col-sm-5 col-form-label">Velg by:</label>
+          <input class="form-control col-sm-7"
+          id="area"
+          list="areaList"
+          name="area"
+          v-model="selectedArea"
+          @change="setArea"
+          placeholder="skriv inn by..."/>
+          <datalist id="areaList" >
+            <option v-bind:value="a" v-for="a in getAreas" :key="a" />
+          </datalist>
+
     </div>
+  </div>
+  <div class="row">
 
 
     <!-- <el-table :data="getAddresses"  v-if="getAddresses.length">
@@ -65,10 +71,11 @@
     </div>
 
   </div>
+      </form>
 </template>
 
 <script>
-import { mapMutations,mapGetters } from 'vuex'
+import { mapMutations,mapGetters,mapActions } from 'vuex'
 
 export default {
   name: 'DropDownFylke',
@@ -88,8 +95,11 @@ export default {
       if(this.$store.state.area){
           this.selectedArea = this.$store.state.area;
       }
+      this.getAllData();
+      console.log('Fetching data from api');
   },
   methods: {
+     ...mapActions(['getAllData']),
     setCounty(){
         console.log('setting county')
         console.log(this.selectedCounty)

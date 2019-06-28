@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container">
 <nuxt-link to="/">Tilbake</nuxt-link>
     <section>
         <h3>Valglokale: {{ getArea}}</h3>
