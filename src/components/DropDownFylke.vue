@@ -20,7 +20,7 @@
       </div>
 
         
-    <div class="form-group row">
+    <div class="form-group row" v-if="getCounty">
 
           <label  class="col-sm-5 col-form-label">Velg by:</label>
           <input class="form-control col-sm-7"
