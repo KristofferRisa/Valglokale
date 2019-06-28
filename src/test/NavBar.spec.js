@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import Locations from '@/components/Locations.vue'
+import NavBar from '@/components/NavBar.vue'
 
-describe('Locations', () => {
+describe('NavBar', () => {
   test('is a Vue instance', () => {
-    const wrapper = mount(Locations)
+    const wrapper = mount(NavBar)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })
