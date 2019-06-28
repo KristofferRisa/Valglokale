@@ -30,7 +30,7 @@
 import { mapMutations,mapGetters,mapActions } from 'vuex'
 
 export default {
-  name: 'DropDownFylke',
+  name: 'DropDownSelection',
   computed: mapGetters(['getCounties',
                         'getAreas'
                         ,'getArea'
