@@ -2,6 +2,7 @@
     <nav>
         <nuxt-link to="/">Hjem</nuxt-link> |
         <nuxt-link to="/About">Om</nuxt-link>
+        <hr>
     </nav>
 </template>
 
