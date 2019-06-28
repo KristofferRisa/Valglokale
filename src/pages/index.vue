@@ -6,21 +6,34 @@
       </div>
    </div>
 
-   <DropDownSelection></DropDownSelection>
+  <spinner v-if="getLoading"></spinner>
+  
+  <DropDownSelection v-else></DropDownSelection>
 
-   <AddressTable></AddressTable>
+  <AddressTable></AddressTable>
 
 </section>
 </template>
 
 <script>
-import DropDownSelection from '~/components/DropDownSelection.vue'
-import AddressTable from '~/components/AddressTable.vue'
+import DropDownSelection from '~/components/DropDownSelection.vue';
+import AddressTable from '~/components/AddressTable.vue';
+import spinner from '~/components/spinner.vue';
+import { mapGetters,mapActions } from 'vuex'
 
 export default {
   components: {
+    spinner,
     DropDownSelection,
     AddressTable
+  },
+  computed: mapGetters(['getLoading']),
+  methods:{
+    ...mapActions(['getAllData']),
+  },
+  created() {
+    this.getAllData();
+    console.log('Fetching data from api');
   }
 }
 </script>
@@ -42,7 +55,7 @@ export default {
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 70px;
   color: #35495e;
   letter-spacing: 1px;
 }

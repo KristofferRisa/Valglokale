@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const state = () => ({
+    loading: 'true',
     all: [],
     addresses: [],
     counties: [],
@@ -8,7 +9,7 @@ export const state = () => ({
     county: '',
     area: '',
     lokale: '' //used to see details on the selected lokale
-  })
+})
   
 export const mutations = {
     setAll(state, data) {
@@ -26,11 +27,19 @@ export const mutations = {
         state.area = area;
         console.log('setSelectedArea:' + area);
         console.log(state.county);
-        state.addresses = state.all.filter(e => e.county_name === state.county && e.area === area)
+        if(area === ''){
+            state.addresses = state.all.filter(e => e.county_name === state.county)
+        } else {
+            state.addresses = state.all.filter(e => e.county_name === state.county && e.area === area)
+        }
    },
    setLokale(state,lokale) {
      console.log('setLokale: ' + lokale);
      state.lokale = lokale;
+   },
+   setLoading(state, loading) {
+       console.log('Setting loadint to: ' + loading);
+       state.loading = loading;
    }
 }
 
@@ -46,12 +55,16 @@ export const actions = {
       console.log(error);
     });
     
+    commit('setLoading',false);
     commit('setAll', response.data);
   }
 
 }
 
 export const getters = {
+    getLoading(state) {
+        return state.loading
+    },
     getCounties(state) {
         return state.counties
     },

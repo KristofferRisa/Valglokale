@@ -1,33 +1,48 @@
 <template>
-<form>
-  <div class="container">
-    <div class="row">
-      <div class="form-group row pull-left">
+  <form>
+    <div class="container">
+      <div class="row">
+        <div class="form-group row pull-left">
 
-        <label class="col-sm-5 col-form-label">Velg fylke:</label>
-        <input id="county" list="countyList" name="countyinput" v-model="selectedCounty" class="form-control col-sm-6 col-offset-1" @change="setCounty" placeholder="skriv inn fylke..." />
-        <datalist id="countyList">
-          <option v-bind:value="c" v-for="c in getCounties" :key="c" />
-        </datalist>
-        
-      </div>
+          <label class="col-sm-5 col-form-label">Velg fylke:</label>
+          <input id="county" 
+                list="countyList" 
+                name="countyinput"
+                autocomplete="off"
+                v-model="selectedCounty" 
+                class="form-control col-sm-6 col-offset-1" 
+                @change="setCounty" 
+                placeholder="skriv inn fylke..." />
+          <datalist id="countyList">
+            <option v-bind:value="c" v-for="c in getCounties" :key="c" />
+          </datalist>
 
-      <div class="form-group row" v-if="getCounty">
-        
-        <label class="col-sm-5 col-form-label">Velg by:</label>
-        <input class="form-control col-sm-7" id="area" list="areaList" name="area" v-model="selectedArea" @change="setArea" placeholder="skriv inn by..." />
-        <datalist id="areaList">
-          <option v-bind:value="a" v-for="a in getAreas" :key="a" />
-        </datalist>
+        </div>
 
+        <div class="form-group row" v-if="getCounty">
+
+          <label class="col-sm-5 col-form-label">Velg by:</label>
+          <input class="form-control col-sm-7" 
+                id="area" 
+                list="areaList" 
+                name="area" 
+                autocomplete="off"
+                v-model="selectedArea" 
+                @change="setArea" 
+                placeholder="skriv inn by..." />
+          
+          <datalist id="areaList">
+            <option v-bind:value="a" v-for="a in getAreas" :key="a" />
+          </datalist>
+
+        </div>
       </div>
     </div>
-  </div>
   </form>
 </template>
 
 <script>
-import { mapMutations,mapGetters,mapActions } from 'vuex'
+import { mapMutations,mapGetters } from 'vuex'
 
 export default {
   name: 'DropDownSelection',
@@ -51,11 +66,8 @@ export default {
       if(this.$store.state.area){
           this.selectedArea = this.$store.state.area;
       }
-      this.getAllData();
-      console.log('Fetching data from api');
   },
   methods: {
-     ...mapActions(['getAllData']),
     setCounty(){
         console.log('setting county');
         console.log(this.selectedCounty);

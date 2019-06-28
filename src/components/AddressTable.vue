@@ -4,7 +4,6 @@
         <hr>
           <el-table
             :data="getAddresses"
-            height="250"
             style="width: 100%">
             <el-table-column
             prop="county_name"
@@ -25,7 +24,7 @@
             </el-table-column>
             <el-table-column >
                 <template slot-scope="scope">
-                    <button @click="setLokale(scope.row.gps_coordinates, getAddresses)"> Vis lokale</button>
+                    <button @click="setLokale(scope.row, getAddresses)"> Vis lokale</button>
                 </template>
             </el-table-column>
         </el-table>
