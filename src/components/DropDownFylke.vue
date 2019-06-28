@@ -5,7 +5,7 @@
       <input 
       id="county"
       list="countyList"
-      name="county"
+      name="countyinput"
       @change="setCounty"
       placeholder="skriv inn fylke..."/>
       <datalist id="countyList" >
@@ -26,6 +26,28 @@
     </div>
     </form>
 
+    <div v-if="getArea">
+      <h3>Viser steder i byen {{ getArea }} i {{ getCounty }} </h3>
+    </div>
+
+    <div v-if="getAddresses.length">
+      <h3>Addresser</h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Fylke</th>
+          <th>By</th>
+          <th>Addresse</th>
+        </tr>
+        <tr v-for="address in getAddresses" :key="address.id">
+          <td>{{ address.county_name }}</td>
+          <td>{{ address.area }}</td>
+          <td>{{ address.address_line }}</td>
+        </tr>
+      </thead>
+      </table>
+    </div>
+
   </div>
 </template>
 
@@ -34,7 +56,7 @@ import { mapMutations,mapGetters } from 'vuex'
 
 export default {
   name: 'DropDownFylke',
-  computed: mapGetters(['getCounties','getAreas','getCounty']
+  computed: mapGetters(['getCounties','getAreas','getArea','getCounty','getAddresses']
   ),
   methods: {
     setCounty(e){

@@ -38,6 +38,7 @@ export const state = () => ({
           ]
         }
     ],
+    addresses: [],
     county: '',
     area: ''
   })
@@ -48,6 +49,9 @@ export const mutations = {
     },
     setSelectedArea(state, area) {
         state.area = area
+        console.log('setSelectedArea:' + area)
+        console.log(state.county)
+        state.addresses = state.all[0].entries.filter(e => e.county_name === state.county && e.area === area)
    }
 }
 
@@ -63,6 +67,9 @@ export const getters = {
     },
     getCounty(state) {
         return state.county
+    },
+    getAddresses(state) {
+        return state.addresses
     }
 }
   
