@@ -14,13 +14,11 @@
 </template>
 
 <script>
-import Locations from '~/components/Locations.vue'
 import DropDownSelection from '~/components/DropDownSelection.vue'
 import AddressTable from '~/components/AddressTable.vue'
 
 export default {
   components: {
-    Locations,
     DropDownSelection,
     AddressTable
   }
