@@ -14,20 +14,10 @@ export default {
 
 <style >
 
-@media only screen and (max-width: 800px) {
-  footer{
-     margin-top: 100px;
-    }
-}
-@media screen and (min-width:800px) {
-    footer{
-        margin-top: 390px;
-    }
-}
-
 footer {
   bottom: 0;
   width: 100%;
   height: 120px;
+  margin-top: 100px;
 }
 </style>

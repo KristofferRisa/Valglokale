@@ -16,7 +16,7 @@
 
 
     <label>Velg kommune:</label>
-    <input class="form-control" id="area" list="areaList" name="area" autocomplete="off" v-model="selectedArea" @change="setArea" placeholder="skriv inn by..." />
+    <input class="form-control" id="area" list="areaList" name="area" autocomplete="off" v-model="selectedArea" @change="setArea" placeholder="skriv inn sted..." />
 
     <datalist id="areaList">
       <option v-bind:value="a" v-for="a in getAreas" :key="a" />
