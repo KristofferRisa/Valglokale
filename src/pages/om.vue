@@ -19,6 +19,7 @@
             <p>Kontakt: <a href="mailto:kristoffer@risa.email" target="_blank">kristoffer@risa.email</a></p>
         </article>
     </section>
+
 </div>
 </template>
 

@@ -45,7 +45,7 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 80px) {
+@media only screen and (max-width: 800px) {
   .container-data{
     /* display: flex; */
     width: 90%;
@@ -53,7 +53,7 @@ export default {
     }
 }
  
-@media screen and (min-width:900px) {
+@media screen and (min-width:800px) {
     .container-data{
     /* display: flex; */
     width: 70%;
