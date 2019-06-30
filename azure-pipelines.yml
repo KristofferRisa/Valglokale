@@ -21,7 +21,7 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: AzureFileCopy@3
+- task: AzureFileCopy@2
   inputs:
     SourcePath: '/dist'
     azureSubscription: 'Developer Program Benefit(c0229226-ce75-4f2b-b895-6d36332f15ee)'
