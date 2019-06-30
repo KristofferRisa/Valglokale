@@ -5,26 +5,27 @@
         <h3>Laget av Kristoffer Risa</h3>
         <h5>Teknologier:</h5>
         <ul>
-            <li>Nuxt.js</li>
-            <li>node og npm</li>
+            <li><a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a></li>
+            <!-- <li>node og npm</li> -->
             <li>Element UI</li>
             <li>Azure Blob Storage</li>
             <li>Azure DevOps</li>
         </ul>
-        <p>Kildekode: GitHub</p>
+        <p>Kildekode: <a href="https://github.com/KristofferRisa/Valglokale" target="_blank">GitHub</a></p>
         </article>
     </section>
     <section id="contact">
         <article>
-            <p>Kontakt: kristoffer@risa.email</p>
+            <p>Kontakt: <a href="mailto:kristoffer@risa.email" target="_blank">kristoffer@risa.email</a></p>
         </article>
     </section>
+
 </div>
 </template>
 
 <script>
 export default {
-    name: 'about'
+    name: 'om'
 }
 </script>
 
