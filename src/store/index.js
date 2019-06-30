@@ -18,7 +18,11 @@ export const mutations = {
     },
     setSelectedCounty(state, county) {
         state.county = county;
-        state.addresses = state.all.filter(e => e.county_name === state.county)
+        state.addresses = state
+            .all
+            .filter(e => e.county_name === state.county)
+            .sort((a, b) => a.area.localeCompare(b.area))
+
         state.areas = [...new Set(state.all
             .filter(c => c.county_name === state.county)
             .map(f => f.area))]
@@ -28,9 +32,16 @@ export const mutations = {
         console.log('setSelectedArea:' + area);
         console.log(state.county);
         if(area === ''){
-            state.addresses = state.all.filter(e => e.county_name === state.county)
+            state.addresses = state
+                .all
+                .filter(e => e.county_name === state.county)
+                .sort((a, b) => a.area.localeCompare(b.area))
+
         } else {
-            state.addresses = state.all.filter(e => e.county_name === state.county && e.area === area)
+            state.addresses = state
+                .all
+                .filter(e => e.county_name === state.county && e.area === area)
+                .sort((a, b) => a.area.localeCompare(b.area))
         }
    },
    setLokale(state,lokale) {
