@@ -1,30 +1,26 @@
 <template>
     <div v-if="getAddresses.length" class="container-data">
-        <h3>Addresser:</h3>
         <hr>
           <el-table
             :data="getAddresses"
             style="width: 100%">
-            <el-table-column
-            prop="county_name"
-            label="Fylke"
-            width="180">
-            </el-table-column>
+
             <el-table-column
             prop="area"
-            label="By"
-            width="180">
+            label="By">
             </el-table-column>
-            <el-table-column
-            
+
+             <el-table-column
             label="Address">
             <template  slot-scope="scope">
-                <a v-bind:href="'https://www.google.com/maps/search/?api=1&query='+scope.row.gps_coordinates" target="_blank">{{ scope.row.address_line }}</a>
+                <a v-bind:href="'https://www.google.com/maps/search/?api=1&query='+scope.row.gps_coordinates" 
+                class="btn btn-default" target="_blank">{{ scope.row.address_line }}</a>
             </template>
             </el-table-column>
-            <el-table-column >
+           
+            <el-table-column label="Vis detaljer" >
                 <template slot-scope="scope">
-                    <button @click="setLokale(scope.row, getAddresses)"> Vis lokale</button>
+                    <button @click="setLokale(scope.row, getAddresses)" class="btn btn-primary">Detaljer</button>
                 </template>
             </el-table-column>
         </el-table>
@@ -49,11 +45,23 @@ export default {
 
 <style>
 
-.container-data{
-  /* display: flex; */
-  width: 70%;
-  margin: 0 auto;
+@media only screen and (max-width: 80px) {
+  .container-data{
+    /* display: flex; */
+    width: 90%;
+    margin: 0 auto;
+    }
 }
+ 
+@media screen and (min-width:900px) {
+    .container-data{
+    /* display: flex; */
+    width: 70%;
+    margin: 0 auto;
+    }
+}
+
+
 
 
 </style>
